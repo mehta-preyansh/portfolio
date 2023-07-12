@@ -26,7 +26,7 @@ const loaderVariants = {
 
 const Loader = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(()=>{
     setTimeout(()=>{
       navigate('index', {replace: false})

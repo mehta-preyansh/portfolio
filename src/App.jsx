@@ -9,8 +9,8 @@ function App() {
   return (
     <AnimatePresence mode='wait' >
     <Routes location={location} key={location.key}>
-      <Route path='/' element={<Loader/>}/>
-      <Route path='/index' element={<Index/>}/>
+      <Route path='/portfolio' element={<Loader/>}/>
+      <Route path='/portfolio/index' element={<Index/>}/>
     </Routes>
     </AnimatePresence>
   );
