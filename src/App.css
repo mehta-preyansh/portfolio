@@ -1,0 +1,22 @@
+html {
+  /* CSS HEX */
+--silver: #bebbbbff;
+--english-violet: #444054ff;
+--dark-purple: #2f243aff;
+--pale-dogwood: #fac9b8ff;
+--salmon: #db8a74ff;
+
+/* CSS HSL */
+--silver: hsla(0, 2%, 74%, 1);
+--english-violet: hsla(252, 14%, 29%, 1);
+--dark-purple: hsla(270, 23%, 18%, 1);
+--pale-dogwood: hsla(15, 87%, 85%, 1);
+--salmon: hsla(13, 59%, 66%, 1);
+
+}
+
+body{
+  background-color: var(--dark-purple);
+  min-height: 100vh;
+  color: azure;
+}
