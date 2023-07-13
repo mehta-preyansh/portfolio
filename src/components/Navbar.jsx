@@ -17,22 +17,22 @@ const navbarVariants = {
   }
 }
 
-const Navbar = () => {
+const Navbar = ({hasAnimationPlayed}) => {
   return (
-    <NavbarContainer variants={navbarVariants} initial='hidden' animate='visible'>
-      <NavLink to='/portfolio/skills'>
+    <NavbarContainer variants={navbarVariants} initial={hasAnimationPlayed? 'visible' : 'hidden'} animate='visible'>
+      <NavLink to='skills'>
         <BiBulb/>
       </NavLink>
-      <NavLink to='/portfolio/about'>
-        <BiInfoCircle/>
-      </NavLink>
-      <NavLink to='/portfolio/index'>
-        <BiHomeAlt2/>
-      </NavLink>
-      <NavLink to='/portfolio/projects'>
+      <NavLink to='projects'>
         <BiCodeBlock/>
       </NavLink>
-      <NavLink to='/portfolio/contact'>
+      <NavLink to='index'>
+        <BiHomeAlt2/>
+      </NavLink>
+      <NavLink to='about'>
+        <BiInfoCircle/>
+      </NavLink>
+      <NavLink to='contact'>
         <BiMailSend/>
       </NavLink>
     </NavbarContainer>

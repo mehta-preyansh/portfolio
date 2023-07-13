@@ -1,4 +1,5 @@
 import './App.css';
+import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Index from './components/Index';
 import Loader from './components/Loader';
@@ -10,18 +11,26 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 
 function App() {
+  useEffect(() => {
+    const hasAnimationPlayed = localStorage.getItem('hasAnimationPlayed');
+    if (!hasAnimationPlayed) {
+      localStorage.setItem('hasAnimationPlayed', true);
+    }
+  }, []);
+
   const location = useLocation()
+
   return (
     <>
-      <Navbar />
+      <Navbar hasAnimationPlayed={localStorage.getItem('hasAnimationPlayed')} />
       <AnimatePresence mode='wait' >
         <Routes location={location} key={location.key}>
-          <Route path='/portfolio' element={<Loader />} />
-          <Route path='/portfolio/index' element={<Index />} />
-          <Route path='/portfolio/about' element={<About />} />
-          <Route path='/portfolio/contact' element={<Contact />} />
-          <Route path='/portfolio/skills' element={<Skills />} />
-          <Route path='/portfolio/projects' element={<Projects />} />
+          <Route path='/' element={<Loader />} />
+          <Route path='index' element={<Index />} />
+          <Route path='about' element={<About />} />
+          <Route path='contact' element={<Contact />} />
+          <Route path='skills' element={<Skills />} />
+          <Route path='projects' element={<Projects />} />
         </Routes>
       </AnimatePresence>
     </>
