@@ -2,25 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
+
 const containerVariants = {
-  hidden:{
-    y: '100vh'    
-  },
-  visible:{
-    y:0
-  }
+  
 }
 
 const Index = () => {
-  const name = <motion.span variants={containerVariants} initial='hidden' animate='visible'>PREYAN<span style={{ color: "var(--salmon)" }}>SH</span></motion.span>
+  const name = <motion.span variants={containerVariants} animate='animationTitle'>PREYAN<span style={{ color: "var(--salmon)" }}>SH</span></motion.span>
   return (
-    <IndexContainer>
-      {name}
-    </IndexContainer>
+    <>
+      <IndexContainer>
+        {name}
+      </IndexContainer>
+    </>
   )
 }
 const IndexContainer = styled.div`
-  display: grid;
+  display: flex;
   width: 100%;
   height: 100vh;
   align-items: center;
@@ -28,6 +26,7 @@ const IndexContainer = styled.div`
   overflow: hidden;
   span{
     font-size: 36px;
+    letter-spacing: 0.3em;
   }
 `
 export default Index

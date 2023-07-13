@@ -20,3 +20,10 @@ body{
   min-height: 100vh;
   color: azure;
 }
+#root{
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100vw;
+  min-height: 100vh;
+}
