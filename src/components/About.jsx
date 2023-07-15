@@ -9,6 +9,6 @@ const About = () => {
   )
 }
 const AboutContainer = styled(motion.div)`
-
+  
 `
 export default About
