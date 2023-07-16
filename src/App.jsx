@@ -1,14 +1,14 @@
 import './App.css';
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom'
-import Index from './components/Index';
-import Loader from './components/Loader';
+import Index from './pages/Index';
+import Loader from './pages/components/Loader';
 import { AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import About from './components/About';
-import Contact from './components/Contact';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
+import Navbar from './pages/components/Navbar';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Skills from './pages/Skills';
+import Projects from './pages/Projects';
 
 function App() {
   useEffect(() => {

@@ -11,6 +11,10 @@ const navbarVariants = {
   visible: {
     x:0,
     transition : {
+      type: "spring",
+      damping: 8,
+      mass: 1,
+      stiffness: 100,
       delay: 2.5,
       ease: 'easeOut'
     }
@@ -19,7 +23,7 @@ const navbarVariants = {
 
 const Navbar = ({hasAnimationPlayed}) => {
   return (
-    <NavbarContainer variants={navbarVariants} initial={hasAnimationPlayed? 'visible' : 'hidden'} animate='visible'>
+    <NavbarContainer variants={navbarVariants} initial=  {hasAnimationPlayed ? 'visible' : 'hidden'} animate='visible'>
       <NavLink to='skills'>
         <BiBulb/>
       </NavLink>
@@ -45,35 +49,28 @@ const NavbarContainer = styled(motion.div)`
   align-items: center;
   justify-content: space-around;
   height: 100vh;
-  left: 0;
+  left: 0px;
   width: 20vw;
   max-width: 56px;
-  bottom: 0;
-  top:0;
   background-color: var(--english-violet);
   >a{
     font-size: 36px;
-    height: 36px;
+    width: 92px;
+    height: 92px;
     text-decoration: none;
     color: var(--dark-purple);
-    transition: color 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
     &.active{
-      color: var(--salmon);
-    }
-    &:hover{
-      color: #996e62;
-    }
-    &:nth-child(3){
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: 5px;
       font-size: 42px;
-      align-self: flex-start;
-      width: 78px;
-      height: 78px;
       border-radius: 50%;
       background-color: var(--english-violet);
+      color: var(--pale-dogwood);
+    }
+    &:not(.active):hover{
+      color: var(--salmon);
     }
   }
 `

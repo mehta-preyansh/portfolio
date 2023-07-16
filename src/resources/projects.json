@@ -1,0 +1,46 @@
+{
+  "projects" : [
+    {
+      "name":"Chat - App",
+      "image": "https://images8.alphacoders.com/115/thumb-1920-1156488.png",
+      "description": "A real time chat app that incorporates features like typing indicator, group chat creation, authentication, etc.",
+      "tech": ["MERN", "Chakra UI", "Socket.IO"],
+      "git": "https://github.com/mehta-preyansh/chat-app"
+    },
+    {
+      "name":"Todo-List",
+      "image": "../resources/todo.png",
+      "description": "An easy to use web app to keep track of your tasks and manage them too.",
+      "tech": ["React", "CSS"],
+      "git": "https://github.com/mehta-preyansh/todo-list"
+    },
+    {
+      "name":"Spotify - clone",
+      "image": "../resources/spotify.png",
+      "description": "A spotify clone app that has the basic features like media controls and user's playlist selection. Used the spotify web API.",
+      "tech": ["React", "Styled components"],
+      "git": "https://github.com/mehta-preyansh/Spotify_Clone"
+    },
+    {
+      "name":"Snake Game",
+      "image": "../resources/snake",
+      "description": "The famous snake game from the era of NOKIA made entirely using HTML, CSS, JS.",
+      "tech": ["HTML", "CSS", "Vanilla JS"],
+      "git": "https://github.com/mehta-preyansh/Snake_Game"
+    },
+    {
+      "name":"Calculator",
+      "image": "../resources/calculator",
+      "description": "A basic calculator to perform non-scientific operations.",
+      "tech": ["HTML", "CSS", "Vanilla JS"],
+      "git": "https://github.com/mehta-preyansh/Basic_Calculator"
+    },
+    {
+      "name":"Analog Clock",
+      "image": "../resources/",
+      "description": "An analog clock made for fun :)",
+      "tech": ["HTML", "CSS", "Vanilla JS"],
+      "git": "https://github.com/mehta-preyansh/Analog_Clock"
+    }
+  ]
+}
