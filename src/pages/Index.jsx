@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import Profile from '../resources/profile.jpg'
+import Profile from './components/Profile'
+import ProfileLite from '../resources/profileLite.jpg'
 
 const Index = () => {
   return (
@@ -20,8 +21,8 @@ const Index = () => {
             </p>
           </section>
           <div className="image-container">
-            <div className="image">
-              <img src={Profile} alt="" />
+            <div className="image"  style={{backgroundImage: `url(${ProfileLite})`}}>
+              <Profile/>
             </div>
           </div>
         </div>
@@ -37,6 +38,10 @@ const IndexContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 42px;
+  *::selection {
+    color: var(--salmon);
+    background-color: var(--silver);
+  }
   .description{
     display: flex;
     align-items: center;
@@ -65,21 +70,20 @@ const IndexContainer = styled.div`
     align-items: center;
     justify-content: center;
     .image{
+      background-size: 346px;
+      background-position: left;
+      background-repeat: no-repeat;
       width: 256px;
       height: 256px;
       color: black;
       border-radius: 50%;
       border: 5px solid var(--pale-dogwood);
-      overflow: hidden;
       box-shadow: 
-        0 0 40px var(--silver), 
-        inset 0 0 40px var(--silver);
-      animation-name: floating;
-      animation-duration: 5s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
+      0 0 40px var(--silver), 
+      inset 0 0 40px var(--silver);
+      overflow: hidden;
+      animation: floating 5s ease-in-out 0s infinite;
       transition: all 0.5s ease-in-out;
-      transform-origin: center;
       &:hover{
         width: 266px;
         height: 266px;
@@ -88,16 +92,6 @@ const IndexContainer = styled.div`
         0% { transform: translate(0px,  0px); }
         50%  { transform: translate(10px, 15px); }
         100%   { transform: translate(0px, 0px); }    
-      }
-      img{
-        scale: 1.2;
-        transition: all 1s ease-in-out;
-        width: 346px;
-        object-fit: cover;
-        object-position: center;
-        &:hover{
-          scale: 1;
-        }
       }
     }
   }

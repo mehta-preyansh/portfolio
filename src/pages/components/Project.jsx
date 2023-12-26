@@ -12,7 +12,7 @@ const containerVariants = {
   animate:{
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
     }
   },
   exit: {
@@ -23,9 +23,9 @@ const containerVariants = {
   }
 }
 
-const Project = ({ key, name, image, tech, description, github }) => {
+const Project = ({ name, image, tech, description, github }) => {
   const [{selectedProject}] = useStateProvider();
-  console.log(selectedProject)
+  // console.log(selectedProject)
   const mouse = {x: 0, y: 0};
   useEffect(()=>{
     const imageBox = document.querySelector('.thumbnail-image');
@@ -43,7 +43,7 @@ const Project = ({ key, name, image, tech, description, github }) => {
   }
 
   return (
-    <ProjectContainer id={key} variants={containerVariants} initial='initial' animate='animate' exit = 'exit'>
+    <ProjectContainer variants={containerVariants} initial='initial' animate='animate' exit = 'exit'>
       <div className="left-section">
         <div className="details">
           <p>
@@ -51,13 +51,13 @@ const Project = ({ key, name, image, tech, description, github }) => {
           </p>
         </div>
         <ul className='tech'>
-          {tech.map(ele => <li>{ele}</li>)}
+          {tech.map((ele,ind) => <li key={ind}>{ele}</li>)}
         </ul>
       </div>
       <div className="partition"/>
       <div className="right-section">
         <div className="thumbnail">
-          <img className='thumbnail-image' src="https://images8.alphacoders.com/115/thumb-1920-1156488.png" alt=""/>
+          <img className='thumbnail-image' src={image} alt=""/>
           <a className="link" href={github} target='_blank'>
             <BiLogoGithub  />
           </a>
@@ -134,6 +134,7 @@ const ProjectContainer = styled(motion.div)`
         object-fit: cover;
         border-radius: 12px;
         transition: filter 0.5s ease;
+        transition: opacity 0.5s ease;
       }
       .link{
         cursor: pointer;
@@ -145,7 +146,7 @@ const ProjectContainer = styled(motion.div)`
         translate: -50% -50%;
         width: 56px;
         height: 56px;
-        color: var(--silver);
+        color: white;
         svg{
           font-size: 56px;
         }
@@ -166,14 +167,18 @@ const ProjectContainer = styled(motion.div)`
         }
       }
       &.visible img{
+        opacity: 0.4;
         filter: blur(1px);
       }
     }
     .title{
       width: fit-content;
+      border-radius: 24px;
+      padding: 8px 12px;
       h1{
         position: relative;
         transition: all 0.3s ease;
+        font-size: clamp(12px, 3vw, 24px);
         cursor: default;
         &:hover{
           cursor: pointer;

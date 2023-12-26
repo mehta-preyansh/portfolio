@@ -3,65 +3,68 @@ import { styled } from 'styled-components'
 import { AnimatePresence, motion } from 'framer-motion'
 import data from '../resources/projects.json'
 import Project from './components/Project'
-import {BiSolidRightArrow, BiSolidLeftArrow} from 'react-icons/bi'
-import {useStateProvider} from '../utils/StateProvider'
+import { BiSolidRightArrow, BiSolidLeftArrow } from 'react-icons/bi'
+import { useStateProvider } from '../utils/StateProvider'
 import { reducerCases } from '../utils/constants'
+import { debounce } from 'lodash'
 
 const oddVariants = {
-  hidden :{
-    y:100
+  hidden: {
+    y: 50
   },
-  visible:{
-    y:0,
-    transition:{
+  visible: {
+    y: 0,
+    transition: {
       ease: 'easeOut',
-      duration: 1
-    }
+      duration: 0.5
+    },
+    
   }
 }
 const evenVariants = {
-  hidden :{
-    y:100
+  hidden: {
+    y: 50
   },
-  visible:{
-    y:0,
-    transition:{
+  visible: {
+    y: 0,
+    transition: {
       delay: 0.5,
       ease: 'easeOut',
-      duration: 0.5
+      duration: 0.3
     }
   }
 }
 
 const Projects = () => {
-  const listOfProjects = data.projects; 
+  const listOfProjects = data.projects;
 
-  const [{selectedProject}, dispatch] = useStateProvider()
+  const [{ selectedProject }, dispatch] = useStateProvider()
 
-  const handleNext = ()=>{
-    document.querySelector(".thumbnail").classList.remove("visible")
+  const handleNext = debounce(() => {
     let currentInd = listOfProjects.indexOf(selectedProject)
-    if(currentInd==listOfProjects.length-1){
+    if (currentInd == listOfProjects.length - 1) {
       const nextProject = listOfProjects[0]
-      dispatch({type: reducerCases.SET_SELECTED_PROJECT, project: nextProject})
+      dispatch({ type: reducerCases.SET_SELECTED_PROJECT, project: nextProject })
     }
-    else{
-      const nextProject = listOfProjects[listOfProjects.indexOf(selectedProject)+1]
-      dispatch({type: reducerCases.SET_SELECTED_PROJECT, project: nextProject})
+    else {
+      const nextProject = listOfProjects[listOfProjects.indexOf(selectedProject) + 1]
+      dispatch({ type: reducerCases.SET_SELECTED_PROJECT, project: nextProject })
     }
-  }
-  const handlePrev = ()=>{
-    document.querySelector(".thumbnail").classList.remove("visible")
+    document.querySelector(".thumbnail")?.classList?.remove("visible")
+  }, 300)
+
+  const handlePrev = debounce(() => {
     let currentInd = listOfProjects.indexOf(selectedProject)
-    if(currentInd==0){
-      const prevProject = listOfProjects[listOfProjects.length-1]
-      dispatch({type: reducerCases.SET_SELECTED_PROJECT, project: prevProject})
+    if (currentInd == 0) {
+      const prevProject = listOfProjects[listOfProjects.length - 1]
+      dispatch({ type: reducerCases.SET_SELECTED_PROJECT, project: prevProject })
     }
-    else{
-      const prevProject = listOfProjects[listOfProjects.indexOf(selectedProject)-1]
-      dispatch({type: reducerCases.SET_SELECTED_PROJECT, project: prevProject})
+    else {
+      const prevProject = listOfProjects[listOfProjects.indexOf(selectedProject) - 1]
+      dispatch({ type: reducerCases.SET_SELECTED_PROJECT, project: prevProject })
     }
-  }
+    document.querySelector(".thumbnail")?.classList?.remove("visible")
+  }, 300)
 
   return (
     <ProjectsContainer id='projects'>
@@ -81,16 +84,16 @@ const Projects = () => {
         <div className="prev-btn" >
           <BiSolidLeftArrow onClick={handlePrev}></BiSolidLeftArrow>
         </div>
-          <AnimatePresence mode='wait'>
-            <Project
-              key={selectedProject.name} 
-              name={selectedProject.name}
-              image={selectedProject.image}
-              description={selectedProject.description} 
-              tech={selectedProject.tech}
-              github={selectedProject.git}
-              />
-            </AnimatePresence>
+        <AnimatePresence mode='wait'>
+          <Project
+            key={selectedProject.name}
+            name={selectedProject.name}
+            image={selectedProject.image}
+            description={selectedProject.description}
+            tech={selectedProject.tech}
+            github={selectedProject.git}
+          />
+        </AnimatePresence>
         <div className="next-btn" >
           <BiSolidRightArrow onClick={handleNext}></BiSolidRightArrow>
         </div>
@@ -98,6 +101,7 @@ const Projects = () => {
     </ProjectsContainer>
   )
 }
+
 const ProjectsContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
@@ -105,7 +109,7 @@ const ProjectsContainer = styled(motion.div)`
   width: 100%;
   height: inherit;
   padding: 28px 42px;
-  user-select: none;
+  /* user-select: none; */
   *::selection{
     color: var(--salmon);
     background-color: var(--silver);
