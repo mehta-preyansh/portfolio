@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import Index from './pages/Index';
 import Loader from './pages/components/Loader';
 import { AnimatePresence } from 'framer-motion';
@@ -25,7 +25,7 @@ function App() {
       <Navbar hasAnimationPlayed={localStorage.getItem('hasAnimationPlayed')} />
       <AnimatePresence mode='wait' >
         <Routes location={location} key={location.key}>
-          <Route path='/' element={<Loader />} />
+          <Route path='/' element={localStorage.getItem('hasAnimationPlayed')? <Navigate to='index'/> : <Loader />} />
           <Route path='index' element={<Index />} />
           <Route path='about' element={<About />} />
           <Route path='contact' element={<Contact />} />

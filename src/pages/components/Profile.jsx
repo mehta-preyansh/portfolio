@@ -25,9 +25,10 @@ const Image = styled.img`
   transition: all 0.3s ease;
   scale: 1.2;
   transition: all 1s ease-in-out;
-  width: 346px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: bottom center;
   &:hover{
     scale: 1;
   }

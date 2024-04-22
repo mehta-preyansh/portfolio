@@ -156,6 +156,7 @@ const ContactContainer = styled(motion.div)`
     color: white;
     overflow: hidden;
     h1 > div {
+      font-size: 3vw;
       display: inline-block;
     }
   }
@@ -210,53 +211,60 @@ const ContactContainer = styled(motion.div)`
       width: 50%;
       display: flex;
       justify-content: center;
-      .form-wrapper > form {
+      .form-wrapper {
         width: 100%;
-        height: 100%;
-        background-color: #5c417f9f;
-        border-radius: 4px;
-        display: flex;
-        flex-direction: column;
-        padding: 8px 12px;
-        button:hover {
-          background-color: #fac8b7;
-          color: #332545;
-          cursor: pointer;
-        }
-        input,
-        textarea,
-        button {
-          background: none;
-          background-color: #332545;
-          border: 1px solid #fac8b7;
-          margin: 8px 4px;
+        > form {
+          width: 100%;
+          max-width: 300px;
+          height: 100%;
+          background-color: #5c417f9f;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
           padding: 8px 12px;
-          color: #fac8b7;
-          transition: all 0.1s ease;
-          &:focus {
-            outline: none;
+          button:hover {
+            background-color: #fac8b7;
+            color: #332545;
+            cursor: pointer;
           }
-        }
-        input,
-        button {
-          padding: 8px 12px;
-        }
-        textarea {
-          resize: none;
-          &::-webkit-scrollbar {
-            width: 6px;
+          input,
+          textarea,
+          button {
+            background: none;
+            background-color: #332545;
+            border: 1px solid #fac8b7;
+            margin: 8px 4px;
+            padding: 8px 12px;
+            color: #fac8b7;
+            transition: all 0.1s ease;
+            &:focus {
+              outline: none;
+            }
           }
-          
-          &::-webkit-scrollbar-track {
-            background: transparent;
+          input,
+          button {
+            padding: 8px 12px;
           }
-          
-          &::-webkit-scrollbar-thumb {
-            background-color: #888;
-            border-radius: 3px;
+          textarea {
+            resize: none;
+            &::-webkit-scrollbar {
+              width: 6px;
+            }
+
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background-color: #888;
+              border-radius: 3px;
+            }
           }
         }
       }
+    }
+    @media screen and (max-width: 425px) {
+      flex-direction: column;
     }
   }
 `;

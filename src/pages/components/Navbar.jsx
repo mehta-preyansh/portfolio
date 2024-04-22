@@ -53,6 +53,7 @@ const NavbarContainer = styled(motion.div)`
   width: 20vw;
   max-width: 56px;
   background-color: var(--english-violet);
+  z-index: 1;
   >a{
     font-size: 36px;
     width: 92px;
