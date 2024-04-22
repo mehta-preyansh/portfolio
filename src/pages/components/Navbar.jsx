@@ -48,8 +48,8 @@ const NavbarContainer = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 100vh;
-  left: 0px;
+  height: 100%;
+  left: 0;
   width: 20vw;
   max-width: 56px;
   background-color: var(--english-violet);
@@ -71,6 +71,20 @@ const NavbarContainer = styled(motion.div)`
     }
     &:not(.active):hover{
       color: var(--salmon);
+    }
+  }
+  @media screen and (max-width: 425px) {
+    flex-direction: row;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 20vh;
+    max-height: 56px;
+    >a{
+      font-size: 28px;
+      &.active{
+        font-size: 36px;
+      }
     }
   }
 `

@@ -37,5 +37,11 @@ body{
   display: flex;
   float: right;
   width: calc(100vw - min(20vw, 56px));
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  @media screen and (max-width: 425px) {
+    width: 100%;
+    height: calc(100vh - min(20vh, 56px));
+    float: none;
+  }
 }

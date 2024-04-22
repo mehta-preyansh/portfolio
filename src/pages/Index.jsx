@@ -14,7 +14,7 @@ const Index = () => {
               <h1>Welco<span>me</span></h1>
             </motion.div>
             <p>
-              I am <b>Preyansh Mehta</b>, a front-end developer based in India. As a front-end web developer embarking on my journey, I'm thrilled to dive into the ever-evolving world of web development. I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces and intuitively implemented UX. I love Nature, Photography and Gaming.
+              I am <b>Preyansh Mehta</b>, a developer based in India. As a developer embarking on my journey, I'm thrilled to dive into the ever-evolving world of development. I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces and intuitively implemented UX. I love Nature, Photography and Gaming.
             </p>
             <p>
               Feel free to explore my portfolio and get in touch to discuss how I can help bring your web development project to life. Let's create something amazing together!
@@ -37,16 +37,17 @@ const IndexContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 42px;
+  padding: 28px 42px;
   *::selection {
     color: var(--salmon);
     background-color: var(--silver);
   }
   .description{
     display: flex;
+    width: 100%;
+    height: 100%;
     align-items: center;
-    justify-content: center;
-    gap: 42px;
+    justify-content: space-evenly;
     .summary{
       word-spacing: 8px;
       width: 50%;
@@ -63,38 +64,51 @@ const IndexContainer = styled.div`
         padding: 12px;
       }
     }
-  .image-container{
-    min-width: 296px;
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .image{
-      background-size: 346px;
-      background-position: left;
-      background-repeat: no-repeat;
-      width: 256px;
-      height: 256px;
-      color: black;
-      border-radius: 50%;
-      border: 5px solid var(--pale-dogwood);
-      box-shadow: 
-      0 0 40px var(--silver), 
-      inset 0 0 40px var(--silver);
-      overflow: hidden;
-      animation: floating 5s ease-in-out 0s infinite;
-      transition: all 0.5s ease-in-out;
-      &:hover{
-        width: 266px;
-        height: 266px;
+    .image-container{
+      min-width: 296px;
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .image{
+        background-size: 346px;
+        background-position: left;
+        background-repeat: no-repeat;
+        width: 256px;
+        height: 256px;
+        color: black;
+        border-radius: 50%;
+        border: 5px solid var(--pale-dogwood);
+        box-shadow: 
+        0 0 40px var(--silver), 
+        inset 0 0 40px var(--silver);
+        overflow: hidden;
+        animation: floating 5s ease-in-out 0s infinite;
+        transition: all 0.5s ease-in-out;
+        &:hover{
+          width: 266px;
+          height: 266px;
+        }
+        @keyframes floating {
+          0% { transform: translate(0px,  0px); }
+          50%  { transform: translate(10px, 15px); }
+          100%   { transform: translate(0px, 0px); }    
+        }
       }
-      @keyframes floating {
-        0% { transform: translate(0px,  0px); }
-        50%  { transform: translate(10px, 15px); }
-        100%   { transform: translate(0px, 0px); }    
+    }
+    @media screen and (max-width: 425px) {
+      flex-direction: column;
+      .summary{
+        width: 100%;
+        line-height: 24px;
+        .heading{
+          font-size: 12px;
+        }
+        p{
+          font-size: 10px;
+        }
       }
     }
   }
-}
 `
 export default Index
